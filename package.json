@@ -1,0 +1,29 @@
+{
+  "name": "NavExercise",
+  "description": "Exercise for candidates to complete where they will build a responsive nav driven from json",
+  "version": "0.1.1",
+  "authors": [
+    "Wes Hatch <whatch@hugeinc.com>",
+    "Karl Stanton <kstanton@hugeinc.com>"
+  ],
+  "license": "© 2016 Huge. All Rights Reserved.",
+  "homepage": "https://github.com/hugeinc/NavExercise",
+  "bugs": {
+    "url": "https://github.com/hugeinc/NavExercise/issues"
+  },
+  "private": true,
+  "scripts": {
+    "test": "nyc --reporter=lcov ava tests/ --verbose",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "debug": "^3.0.1",
+    "express": "~4.2.0",
+    "morgan": "~1.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "nyc": "^11.2.1",
+    "sinon": "^3.3.0"
+  }
+}

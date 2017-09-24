@@ -1,0 +1,366 @@
+@import "fonts.css";
+/* ==========================================
+    RESET
+===========================================*/ 
+* {
+  margin: 0;
+}
+/*====================================
+	BASE STYLES
+====================================*/
+.header-container {
+  width: 100%;
+  margin: auto; 
+  display: flex;
+  flex-direction: row; 
+  align-items: stretch;
+}
+
+.logo-lg {
+  width:50%;
+}
+
+.logo {
+  text-decoration: none;
+  background: #ec008c;
+  width: 6.5% !important;
+  padding: 26.5px 6px;
+}
+
+p {
+  font: 5vmin/1 GalaxieCopernicusBook;
+}
+
+.text {
+  padding: 100px;
+  text-align: center;
+}
+
+.slide {
+  width:100%;
+}
+
+.image { 
+  position: relative; 
+  width: 100%; 
+  height: 640px;
+  z-index: -1;
+}
+
+h2.title-lg { 
+  position: absolute; 
+  top: 200px; 
+  left: 0; 
+  width: 100%;
+  text-align: center;   
+}
+
+h2.title-lg span { 
+  color: #fff;
+  font: 18vmin/1 HUGEAvantGardeBold;
+}
+
+h2.title-sm { display: none; }
+
+.toggle-nav {
+  display: none;
+}
+
+.toggle {
+  width: 10%; 
+  align-items: left;
+}
+
+.toggle-open {
+  display: block;  
+}
+
+.toggle-close {
+  display: none;  
+}
+
+a {
+  font: 3vmin/1 HUGEAvantGardeBold;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+  transition:all 0.5s;
+  color: #eee;
+  background: #ec008c;
+}
+
+.icon-sm {
+  visibility: hidden;
+}
+
+.copyright {
+  visibility: hidden;
+}
+
+/*====================================
+  MENU STYLES
+====================================*/
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  background: #ec008c;
+  padding-bottom: 5px;
+  flex-wrap: wrap;
+ }
+
+ .main-menu div {
+   flex:1; 
+   flex-grow: 0;
+   flex-shrink: 1;
+   flex-basis: 10%;
+ }
+
+/*====================================
+  DROPDOWN MENU STYLES
+====================================*/
+/* The hidden-at-first drop menus */
+.drop-menu {
+  display: flex;
+  flex-direction: column; 
+  transition: max-height .4s, opacity .3s;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden; /* Keeps links in drop menu from displaying until height is large enough */
+  background: white;
+}
+
+.drop-menu > .menu-button {
+  height: 100%;
+  transition: transform .4s;
+  transform: translateY(-300%);
+  font: 3vmin/1 GalaxieCopernicusBook;
+}
+
+/* The dropdown-wrapper wraps both the .main-menu button and drop down menu */
+/* Expands .drop-menu to children height, not setting an expicit height allows variable # of buttons */
+.dropdown-wrapper:hover .drop-menu {
+  max-height: 100%;  
+  opacity: 1;
+}
+
+/* The specifity keeps styles from affecting main menu button */
+.dropdown-wrapper:hover > .drop-menu .menu-button {
+  transform: translateY(0%); 
+}
+
+/* Makes for easy identifying when the drop menu is open */
+.dropdown-wrapper:hover > .menu-button {
+  color: #ec008c;
+  background: #eee;
+}
+
+.inner {
+  width:210px;
+  position: absolute;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/*====================================
+  MEDIA QUERIES
+====================================*/
+@media (min-width: 768px) {
+  /*====================================
+  DROP-MENU EFFECTS (LARGER SCREENS)
+  ====================================*/
+  .dropdown-wrapper:hover .scissor .menu-button {
+    transform: translateX(0%);
+  }
+
+  .dropdown-wrapper:hover .fade-in .menu-button {
+    opacity: 1;
+  }
+
+  .main-menu {   
+    flex-basis: 100%;
+    flex-direction: row; /* Horizontal main menu buttons */
+    align-items: stretch; /* Makes the top of the 'dropdown-wrapper' div stay flush with button top because it's aligned on the cross-axis */
+    height: 70px; /* Setting the height allows the dropdown outside of it's parent's bounds, therefore not compensated for by the flex. */
+    margin: 0;
+    width: 100% !important;
+  }
+
+  .main-menu a.primary {
+    width: 100%;
+    text-align: center;
+    display: block;
+    color: #eee;
+    background: #ec008c;
+    padding: 26.5px 6px;
+  }
+  
+  .main-menu a.secundary {
+    width: 100%;
+    text-align: left;
+    display: block;
+    color: black;
+    background: white;
+    padding: 14px 6px 8px 10px;;
+  }
+  
+  a.primary:hover {
+    background:#eee;
+    color:#ec008c;
+  }
+
+  a.secundary:hover {
+    background:#eee;
+    color:#ec008c;
+  }
+
+  .header-container {
+    justify-content: space-between; /* Pushes logo to top, nav bar all the way down */
+  } 
+}
+
+@media all and (max-width:768px) {
+  .logo-sm {
+    max-width:50px;
+    margin: 10px;
+    align-self: center; 
+  }
+
+  .logo-lg { display: none; }
+  .dvLogo { display: none; }
+
+  .toggle-nav {
+    display: block;
+  }
+
+  a.toggle-nav {
+    padding: 0;
+    align-items: left;
+    text-align: left;
+    width: 100%;
+  }
+
+  .flex-toggle {
+    display:flex;
+    justify-content: space-between; 
+  }
+
+  .flex-toggle img {
+    flex: 1;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 20%;
+  }
+
+  .image { 
+    position: relative; 
+    width: 100%;
+    height: 240px;
+  }
+
+  .text {
+    text-align: justify;
+    margin: 20px;
+    padding: 0;
+  }
+
+  .pText {
+    padding-top: 50px;
+  }
+
+  h2.title-lg { display: none; }
+  h2.title-sm { 
+    display: inline;  
+  }
+  
+  h2.title-sm span { 
+    color: #000;
+    font: 12vmin/1 HUGEAvantGardeBold;
+  }
+
+  .main-menu {
+    background: white;
+    flex-wrap: nowrap;
+   }
+
+   a {
+    font: 5vmin/1 HUGEAvantGardeBold;
+    text-decoration: none;
+    display: inline-block;
+    transition:all 0.5s;
+    color: #eee;
+    background: #ec008c;
+  }
+
+  .main-menu a.primary {
+    width: 100%;
+    text-align: left;
+    align-items: left;
+    display: block;
+    color: black;
+    background: white;
+    padding: 20px 6px;
+    padding-left: 20px;
+  }
+  
+  .main-menu a.secundary {
+    width: 100%;
+    text-align: left;
+    align-items: left;
+    display: block;    
+    color: black;
+    background: white;
+    padding: 12px 6px;
+    padding-left: 20px;
+  }
+
+  a.primary:hover {
+    background:#eee;
+    color:#ec008c;
+  }
+
+  a.secundary:hover {
+    background:#eee;
+    color:#ec008c;
+  }
+
+  .drop-menu > .menu-button {
+    height: 100%;
+    transition: transform .4s;
+    transform: translateY(-300%);
+    font: 4.5vmin/1 GalaxieCopernicusBook;
+  }
+
+  .inner {
+    width:100%;
+    position: relative;
+  }
+
+  .icon-sm {
+    float: right;
+    color:#ec008c;
+    visibility: visible;
+    padding-right: 35px;
+  }
+
+  .copyright {
+    visibility: visible;
+    flex-grow: 1;  
+    font: 3vmin/1 HelveticaNeueRegular;  
+    padding: 10px;
+  }
+
+  /* The side navigation menu */
+  .sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 10%;
+    left: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+}
+
+  
