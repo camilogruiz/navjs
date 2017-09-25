@@ -6,6 +6,9 @@
     "Wes Hatch <whatch@hugeinc.com>",
     "Karl Stanton <kstanton@hugeinc.com>"
   ],
+  "engines": {
+    "node": ">= 8.0.0"
+  },
   "license": "© 2016 Huge. All Rights Reserved.",
   "homepage": "https://github.com/hugeinc/NavExercise",
   "bugs": {
